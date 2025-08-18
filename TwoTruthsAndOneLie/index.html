@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&display=swap"
+      rel="stylesheet"
+    />
+    <title>Two Truths and a Lie</title>
+    <style>
+      html,
+      html * {
+        margin: 0;
+        padding: 0;
+        border: none;
+        box-sizing: border-box;
+      }
+      body {
+        font: 1em "Funnel Display", "Arial", sans-serif;
+        background: url(background.png);
+        background-size: cover;
+      }
+      #root {
+        max-width: 40em;
+        margin: 1rem auto;
+        padding: 1rem;
+        background: rgba(255, 255, 255, 0.75);
+        border: 0.15rem solid rgba(0, 0, 0, 0.1);
+        border-radius: 0.5rem;
+      }
+      header {
+        text-align: center;
+      }
+      h2 {
+        margin-bottom: 1rem;
+      }
+      p {
+        margin-bottom: 0.25rem;
+      }
+      p:last-child {
+        margin-bottom: 1rem;
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .input-container {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 0.5rem;
+      }
+      input[type="text"],
+      button {
+        font: inherit;
+        padding: 0.5rem;
+        border-radius: 0.25rem;
+      }
+      input[type="text"] {
+        background: rgba(255, 255, 255, 0.5);
+        border-bottom: 0.15rem solid rgba(0, 0, 0, 0.1);
+        transition: 100ms background ease-in-out;
+      }
+      .show input[type="text"].truth {
+        background: rgba(14, 161, 66, 0.25);
+      }
+      .show input[type="text"].lie {
+        background: rgba(220, 50, 0, 0.25);
+      }
+      button {
+        margin-top: 1rem;
+        background: rgba(254, 171, 151, 1);
+        border: 0.15rem solid rgba(214, 108, 82, 0.75);
+        transition: 100ms background ease-in-out;
+      }
+      button:hover {
+        background: rgba(254, 171, 151, 0.75);
+      }
+      input[type="checkbox"],
+      button:hover {
+        cursor: pointer;
+      }
+      input[type="checkbox"] {
+        transition: 100ms opacity ease-in-out;
+      }
+      .hide input[type="checkbox"] {
+        opacity: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root">
+      <header>
+        <h2>Two Truths and a Lie</h2>
+        <p>Write your claims and choose which one is false.</p>
+        <p>Then let somebody else guess which is the odd one out.</p>
+      </header>
+      <form id="form">
+        <div class="input-container show">
+          <label for="claim-1">Claim 1:</label>
+          <input
+            id="claim-1"
+            type="text"
+            placeholder="Type your claim here..."
+          />
+          <input class="claim-checkbox" id="claim-1-checkbox" type="checkbox" />
+        </div>
+        <div class="input-container show">
+          <label for="claim-2">Claim 2:</label>
+          <input
+            id="claim-2"
+            type="text"
+            placeholder="Type your claim here..."
+          />
+          <input class="claim-checkbox" id="claim-2-checkbox" type="checkbox" />
+        </div>
+        <div class="input-container show">
+          <label for="claim-3">Claim 3:</label>
+          <input
+            id="claim-3"
+            type="text"
+            placeholder="Type your claim here..."
+          />
+          <input class="claim-checkbox" id="claim-3-checkbox" type="checkbox" />
+        </div>
+        <button id="toggle-answers" type="button" value="1">
+          Hide answers
+        </button>
+      </form>
+    </div>
+    <script>
+      const checkboxes = document.querySelectorAll(".claim-checkbox");
+
+      checkboxes.forEach((checkbox) => {
+        checkbox.addEventListener("change", (event) => {
+          checkboxes.forEach((element) => {
+            const textInput =
+              element.parentElement.querySelector("input[type='text']");
+            if (element.id !== event.target.id || element.checked === false) {
+              element.checked = false;
+              textInput.className = "truth";
+            } else {
+              textInput.className = "lie";
+            }
+          });
+        });
+      });
+
+      const button = document.getElementById("toggle-answers");
+      const containers = document.querySelectorAll(".input-container");
+
+      button.addEventListener("click", () => {
+        if (Number(button.value) === 1) {
+          button.value = 0;
+          containers.forEach((container) =>
+            container.classList.replace("show", "hide")
+          );
+          button.textContent = "Show answers";
+        } else {
+          button.value = 1;
+          containers.forEach((container) =>
+            container.classList.replace("hide", "show")
+          );
+          button.textContent = "Hide answers";
+        }
+      });
+    </script>
+  </body>
+</html>
