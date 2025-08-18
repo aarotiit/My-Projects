@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Age Calculator</title>
+    <link rel="icon" type="image/png" href="images/favicon-32x32.png" />
+    <meta
+      name="description"
+      content="Calculate your exact age in years, months, and days"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="calculator-card">
+        <div class="input-section">
+          <div class="input-group">
+            <label for="day">DAY</label>
+            <input type="number" id="day" placeholder="DD" min="1" max="31" />
+            <span class="error-message" id="day-error"></span>
+          </div>
+
+          <div class="input-group">
+            <label for="month">MONTH</label>
+            <input type="number" id="month" placeholder="MM" min="1" max="12" />
+            <span class="error-message" id="month-error"></span>
+          </div>
+
+          <div class="input-group">
+            <label for="year">YEAR</label>
+            <input type="number" id="year" placeholder="YYYY" min="1900" />
+            <span class="error-message" id="year-error"></span>
+          </div>
+        </div>
+
+        <div class="divider-section">
+          <div class="divider-line"></div>
+          <button class="calculate-btn" id="calculate-btn">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/200/svg"
+            >
+              <path
+                d="M7 10L12 15L17 10"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+        </div>
+
+        <div class="results-section">
+          <div class="result-row">
+            <span class="number" id="years-result">--</span>
+            <span class="unit">years</span>
+          </div>
+          <div class="result-row">
+            <span class="number" id="months-result">--</span>
+            <span class="unit">months</span>
+          </div>
+          <div class="result-row">
+            <span class="number" id="days-result">--</span>
+            <span class="unit">days</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+
+    <div id="sign">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="https://github.com/aarotiit">Aaro</a>.
+    </div>
+  </body>
+</html>
