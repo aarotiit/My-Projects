@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Tilaa pannukakku</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="image-container">
+        <img src="images/pancake.jpeg" alt="Delicious pancakes" />
+        <div class="price-banner"><span id="totalPrice">5€</span></div>
+      </div>
+      <div class="form-container">
+        <div id="box">
+          <h2>Muokkaa Pannukakkuasi</h2>
+          <form id="pancakeForm">
+            <label for="customerName">Sinun nimesi:</label>
+            <input
+              type="text"
+              id="customerName"
+              placeholder="Kirjoita nimesi"
+            />
+
+            <div id="selectType">
+              <label for="type" style="font-size: 1.5em"
+                >Valitse pannukakun tyyppi:</label
+              >
+              <select id="type">
+                <option value="5">Klassinen - 5€</option>
+                <option value="6">Suklaa - 6€</option>
+                <option value="7">Mustikka - 7€</option>
+              </select>
+            </div>
+
+            <h3>Valitse täytteet:</h3>
+            <label>
+              <div class="ingredients">
+                <input type="checkbox" class="topping" value="1" />
+                <span>Pähkinät</span>
+                <p class="extraPrice">1€</p>
+              </div>
+            </label>
+            <label>
+              <div class="ingredients">
+                <input type="checkbox" class="topping" value="1" />
+                <span>Banaani</span>
+                <p class="extraPrice">1€</p>
+              </div>
+            </label>
+            <label>
+              <div class="ingredients">
+                <input type="checkbox" class="topping" value="1" />
+                <span>Siirappi</span>
+                <p class="extraPrice">1€</p>
+              </div>
+            </label>
+
+            <h3>Valitse lisukkeet:</h3>
+            <label>
+              <div class="ingredients">
+                <input type="checkbox" class="extra" value="2" />
+                <span>Kermavaahto</span>
+                <p class="extraPrice">2€</p>
+              </div>
+            </label>
+            <label>
+              <div class="ingredients">
+                <input type="checkbox" class="extra" value="3" />
+                <span>Jäätelö</span>
+                <p class="extraPrice">3€</p>
+              </div>
+            </label>
+
+            <h3>Valitse toimitustapa:</h3>
+            <div class="delivery-options">
+              <label class="delivery-option">
+                <input type="checkbox" class="delivery" value="0" />
+                Syö täällä
+              </label>
+              <label class="delivery-option">
+                <input type="checkbox" class="delivery" value="0" />
+                Ota mukaan
+              </label>
+              <label class="delivery-option">
+                <input type="checkbox" class="delivery" value="5" />
+                Toimitus (+ 5€)
+              </label>
+            </div>
+          </form>
+        </div>
+
+        <h3 id="priceTitle">
+          Kokonaishinta: <span id="totalPriceDisplay">5€</span>
+        </h3>
+        <button type="button" id="seeOrder">Tarkista tilauksen tiedot</button>
+
+        <div id="orderSummary">
+          <h3>Tilauksen yhteenveto</h3>
+          <p id="summaryText">Tietosi tulevat tähän.</p>
+          <button type="button" id="confirmOrder">Vahvista tilaus</button>
+        </div>
+
+        <div class="nav-links">
+          <a href="tilaukset.html">Kaikki tilaukset</a>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,340 @@
+body {
+  background-color: #ffffff;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  min-height: 100vh;
+  overflow: hidden;
+  font-family: "Fredoka", sans-serif;
+}
+
+.container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100vw;
+}
+
+.image-container,
+.form-container {
+  flex: 1;
+  min-height: 100vh;
+}
+
+.image-container {
+  position: relative;
+}
+
+.image-container img {
+  object-fit: cover;
+  width: 100%;
+  height: 100vh;
+}
+
+.form-container {
+  background-image: url(images/pannukakkukuva.png);
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  line-height: normal;
+  font-size: 1.1em;
+  overflow-y: auto;
+  max-height: 100vh;
+  box-sizing: border-box;
+  align-items: center;
+}
+
+.price-banner {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: #d17b49;
+  color: white;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 28px;
+  font-weight: 600;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+  border: 3px solid #fff;
+}
+
+@keyframes priceBounce {
+  0% {
+    transform: scale(1);
+    color: #000;
+  }
+  50% {
+    transform: scale(1.3);
+    color: #d17b49;
+  }
+  100% {
+    transform: scale(1);
+    color: #000;
+  }
+}
+
+.animate-price {
+  animation: priceBounce 0.5s ease-in-out;
+}
+
+#box,
+#priceTitle,
+#orderSummary {
+  background-color: #671d1d90;
+  border-radius: 30px;
+  padding: 20px;
+  width: 85%;
+  max-width: 600px;
+}
+
+#box {
+  margin-bottom: 10px;
+}
+
+#priceTitle {
+  padding: 18px;
+  text-align: center;
+  margin: 15px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  position: sticky;
+  bottom: 20px;
+}
+
+#orderSummary {
+  margin-top: 25px;
+  display: none;
+}
+
+#orderSummary h3 {
+  text-align: center;
+  font-size: 1.4em;
+  margin-bottom: 15px;
+}
+
+#pancakeForm {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  align-items: center;
+}
+
+h2,
+h3 {
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+h2 {
+  font-size: 1.8em;
+}
+
+h3 {
+  font-size: 1.3em;
+  margin-top: 12px;
+}
+
+#customerName,
+#type {
+  padding: 12px;
+  border-radius: 12px;
+  border: none;
+  font-family: "Fredoka", sans-serif;
+  font-size: 0.95em;
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s;
+}
+
+#customerName {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+#customerName:focus,
+#type:focus {
+  outline: none;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1),
+    0 0 0 3px rgba(209, 123, 73, 0.3);
+}
+
+#type {
+  width: 250px;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23671d1d' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 15px center;
+  background-size: 14px;
+  padding-right: 35px;
+  text-overflow: ellipsis;
+  cursor: pointer;
+}
+
+#selectType {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.ingredients {
+  background-color: rgba(255, 255, 255, 0.15);
+  padding: 12px 20px;
+  border-radius: 15px;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.2s;
+  cursor: pointer;
+  font-size: 0.95em;
+  min-width: 350px;
+  box-sizing: border-box;
+  justify-content: flex-start;
+}
+
+.ingredients span {
+  flex: 1;
+  padding-left: 8px;
+  min-width: 100px;
+}
+
+.extraPrice {
+  background-color: #d17b49;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  font-weight: 600;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  font-size: 0.95em;
+}
+
+button {
+  background-color: #d17b49;
+  color: white;
+  border: none;
+  padding: 15px 25px;
+  border-radius: 50px;
+  font-family: "Fredoka", sans-serif;
+  font-size: 1.1em;
+  cursor: pointer;
+  margin-top: 25px;
+  transition: all 0.2s;
+  font-weight: 600;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  width: 85%;
+  max-width: 600px;
+}
+
+button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  background-color: #e08c59;
+}
+
+button:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+#seeOrder {
+  align-self: center;
+  width: 80%;
+  max-width: 400px;
+}
+
+#confirmOrder {
+  background-color: #2d7d3e;
+  margin-top: 15px;
+}
+
+#confirmOrder:hover {
+  background-color: #359c49;
+}
+
+#totalPriceDisplay {
+  font-weight: 600;
+  color: #fff;
+  font-size: 1.3em;
+  background-color: #d17b49;
+  border-radius: 50px;
+  padding: 8px 20px;
+  margin-left: 12px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+.delivery-options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.delivery-option {
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 10px 12px;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 0.95em;
+}
+
+.delivery-option:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin-right: 10px;
+  accent-color: #d17b49;
+  cursor: pointer;
+}
+
+select,
+label {
+  display: block;
+  margin-top: 10px;
+}
+
+#summaryText {
+  line-height: 1.4;
+}
+
+.nav-links {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.nav-links a {
+  background-color: #671d1d;
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.nav-links a:hover {
+  background-color: #8b2525;
+  transform: translateY(-2px);
+}
