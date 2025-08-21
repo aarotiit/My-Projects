@@ -14,7 +14,11 @@
     <header class="site-header" role="banner">
       <div class="header-container">
         <a href="index.html" class="brand" rel="home">Aaro Tiitinen</a>
-        <nav class="primary-navigation" aria-label="Main navigation">
+        <nav
+          id="primary-navigation"
+          class="primary-navigation"
+          aria-label="Main navigation"
+        >
           <ul>
             <li><a href="#hero">Start</a></li>
             <li><a href="#about">About</a></li>
@@ -26,15 +30,18 @@
 
         <!--Button for mobile menu-->
         <button
+          id="menu-toggle"
           class="menu-toggle"
           aria-expanded="false"
           aria-controls="primary-navigation"
           aria-label="Open menu"
-        ></button>
+        >
+          ☰
+        </button>
       </div>
     </header>
 
-    <!-- 3. Main (all primary content lives here) -->
+    <!--Main (all primary content lives here) -->
     <main id="main">
       <!-- Hero Section -->
       <section id="hero">
