@@ -1,0 +1,112 @@
+:root {
+  --base-color: #0d1b2a;
+  --base-variant: #1b263b;
+  --text-color: white;
+  --secondary-text: lightgrey;
+  --primary-color: #415a77;
+  --accent-color: #778da9;
+
+  --font-body: "Oswald", system-ui, -apple-system, sans-serif;
+  --font-heading: "Oswald", system-ui, -apple-system, sans-serif;
+}
+html,
+body {
+  margin: 0%;
+  padding: 0%;
+}
+body {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  letter-spacing: -0.5px; /* sharp look */
+}
+
+/* header decoration */
+nav {
+  background-color: #0d1b2a;
+  padding: 1rem;
+
+  width: 100%;
+  display: flex;
+}
+
+header a {
+  text-decoration: none;
+}
+
+header ul {
+  list-style-type: none;
+  margin: 0%;
+  padding: 0%;
+}
+
+.off-screen-menu {
+  background-color: #1b263b;
+  height: 100vh;
+  width: 100%;
+  max-width: 450px;
+  position: fixed;
+  top: 0;
+  right: -450px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 3rem;
+  transition: 0.3s ease;
+}
+
+.off-screen-menu.active {
+  right: 0;
+}
+
+.ham-menu {
+  height: 50px;
+  width: 50px;
+  margin-left: auto;
+  position: relative;
+  margin-right: 10%;
+}
+
+.ham-menu span {
+  height: 5px;
+  width: 100%;
+  background-color: white;
+  border-radius: 25px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: 0.3s ease;
+}
+
+.ham-menu span:nth-child(1) {
+  top: 25%;
+}
+
+.ham-menu span:nth-child(3) {
+  top: 75%;
+}
+.ham-menu.active span:nth-child(1) {
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.ham-menu.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.ham-menu.active span:nth-child(3) {
+  top: 50%;
+  transform: translate(-50%, 50%) rotate(-45deg);
+}

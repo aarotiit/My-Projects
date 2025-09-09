@@ -3,45 +3,42 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Aaro Tiitinen — Portfolio</title>
+    <title>Aaro Tiitinen - Portfolio</title>
+    <!-- Inter + Montserrat from Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <!-- Skip link -->
-    <a href="#main" class="skip-link">Skip to main content</a>
+    <!-- 2. Header (branding + navigation) -->
+    <header>
+      <nav aria-label="Main navigation">
+        <a href="index.html"><!--Myname or something--></a>
+        <!-- 1. Skip link (for accessibility, keyboard users) -->
 
-    <!-- Header, includes banner and navigation -->
-    <header class="site-header" role="banner">
-      <div class="header-container">
-        <a href="index.html" class="brand" rel="home">Aaro Tiitinen</a>
-        <nav
-          id="primary-navigation"
-          class="primary-navigation"
-          aria-label="Main navigation"
-        >
-          <ul>
-            <li><a href="#hero">Start</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="gallery.html">Gallery</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-        </nav>
-
-        <!--Button for mobile menu-->
-        <button
-          id="menu-toggle"
-          class="menu-toggle"
-          aria-expanded="false"
-          aria-controls="primary-navigation"
-          aria-label="Open menu"
-        >
-          ☰
-        </button>
+        <div class="ham-menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </nav>
+      <div class="off-screen-menu">
+        <ul>
+          <li><a href="#hero">Start</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#main" class="skip-link">Skip to main</a></li>
+        </ul>
       </div>
     </header>
 
-    <!--Main (all primary content lives here) -->
+    <!-- 3. Main (all primary content lives here) -->
     <main id="main">
       <!-- Hero Section -->
       <section id="hero">
