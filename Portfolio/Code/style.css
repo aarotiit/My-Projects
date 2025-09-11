@@ -37,10 +37,17 @@ nav {
 
   width: 100%;
   display: flex;
+  align-items: center;
 }
 
 header a {
   text-decoration: none;
+}
+
+header #myName {
+  font-weight: 1000;
+  text-decoration: none;
+  color: #778da9;
 }
 
 header ul {
@@ -64,6 +71,7 @@ header ul {
   text-align: center;
   font-size: 3rem;
   transition: 0.3s ease;
+  z-index: 1000;
 }
 
 .off-screen-menu.active {
@@ -73,9 +81,13 @@ header ul {
 .ham-menu {
   height: 50px;
   width: 50px;
-  margin-left: auto;
   position: relative;
+  margin-left: auto;
   margin-right: 10%;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 1101; /* above .off-screen-menu (1000) */
 }
 
 .ham-menu span {
@@ -87,7 +99,9 @@ header ul {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  transition: 0.3s ease;
+  transform-origin: center;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  display: block;
 }
 
 .ham-menu span:nth-child(1) {
@@ -108,5 +122,62 @@ header ul {
 
 .ham-menu.active span:nth-child(3) {
   top: 50%;
-  transform: translate(-50%, 50%) rotate(-45deg);
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+/* Prevent background scroll when menu is open */
+body.no-scroll {
+  overflow: hidden;
+}
+
+/* Desktop layout: inline nav, hide hamburger */
+@media (min-width: 768px) {
+  /* Keep header visible on desktop */
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 1100; /* above drawer and content */
+    /* Optional subtle shadow for separation */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  }
+
+  .ham-menu {
+    display: none;
+  }
+
+  .off-screen-menu {
+    position: static;
+    height: auto;
+    max-width: none;
+    width: auto;
+    background: transparent;
+    display: block;
+    text-align: right;
+    font-size: 1rem;
+    transition: none;
+    right: auto;
+  }
+
+  nav {
+    gap: 1rem;
+  }
+
+  .off-screen-menu ul {
+    display: flex;
+    gap: 1.25rem;
+    align-items: center;
+    margin-left: auto;
+  }
+
+  .off-screen-menu li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1rem;
+  }
+
+  .off-screen-menu.active li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1rem;
+  }
 }

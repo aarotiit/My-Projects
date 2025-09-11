@@ -17,25 +17,30 @@
     <!-- 2. Header (branding + navigation) -->
     <header>
       <nav aria-label="Main navigation">
-        <a href="index.html"><!--Myname or something--></a>
-        <!-- 1. Skip link (for accessibility, keyboard users) -->
-
-        <div class="ham-menu">
-          <span></span>
-          <span></span>
-          <span></span>
+        <a href="index.html" id="myName"></a>
+        <!-- Mobile menu button -->
+        <button
+          class="ham-menu"
+          aria-label="Open menu"
+          aria-controls="mobile-menu"
+          aria-expanded="false"
+          type="button"
+        >
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </button>
+        <!-- Navigation links (drawer on mobile, inline on desktop) -->
+        <div class="off-screen-menu" id="mobile-menu">
+          <ul>
+            <li><a href="#hero">Start</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
         </div>
       </nav>
-      <div class="off-screen-menu">
-        <ul>
-          <li><a href="#hero">Start</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="gallery.html">Gallery</a></li>
-          <li><a href="#contact">Contact</a></li>
-          <li><a href="#main" class="skip-link">Skip to main</a></li>
-        </ul>
-      </div>
     </header>
 
     <!-- 3. Main (all primary content lives here) -->
