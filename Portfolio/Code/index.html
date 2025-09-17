@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Aaro Tiitinen - Portfolio</title>
+    <!-- Inter + Montserrat from Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- 2. Header (branding + navigation) -->
+    <header>
+      <nav aria-label="Main navigation">
+        <a href="index.html" id="myName"></a>
+        <!-- Mobile menu button -->
+        <button
+          class="ham-menu"
+          aria-label="Open menu"
+          aria-controls="mobile-menu"
+          aria-expanded="false"
+          type="button"
+        >
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </button>
+        <!-- Navigation links (drawer on mobile, inline on desktop) -->
+        <div class="off-screen-menu" id="mobile-menu">
+          <ul>
+            <li><a href="#hero">Start</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <!-- 3. Main (all primary content lives here) -->
+    <main id="main">
+      <!-- Hero Section -->
+      <section id="hero">
+        <div class="hero-inner">
+          <h1 class="hero-title">Aaro Tiitinen</h1>
+          <p class="hero-subtitle">Text later</p>
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section id="about">
+        <!-- later: profile picture + short text -->
+      </section>
+
+      <!-- Projects Section -->
+      <section id="projects">
+        <!-- later: project cards -->
+      </section>
+
+      <!-- Gallery Page is separate (gallery.html) -->
+    </main>
+
+    <!-- 4. Footer (contact form, links, copyright) -->
+    <footer id="contact">
+      <!-- later: contact form -->
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

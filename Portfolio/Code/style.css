@@ -1,0 +1,246 @@
+:root {
+  --base-color: #0d1b2a;
+  --base-variant: #1b263b;
+  --text-color: white;
+  --secondary-text: lightgrey;
+  --primary-color: #415a77;
+  --accent-color: #778da9;
+
+  --font-body: "Oswald", system-ui, -apple-system, sans-serif;
+  --font-heading: "Oswald", system-ui, -apple-system, sans-serif;
+}
+html,
+body {
+  margin: 0%;
+  padding: 0%;
+}
+body {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  letter-spacing: -0.5px; /* sharp look */
+}
+
+/* hero section */
+#hero {
+  position: relative;
+  min-height: 60vh;
+  background-image: url("../Images/digital-art-style-illustration-thunderstorm.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+}
+
+#hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45); /* dark overlay for text contrast */
+}
+
+.hero-inner {
+  position: relative; /* above overlay */
+  z-index: 1;
+  color: var(--text-color);
+  max-width: 1100px;
+  margin-inline: auto;
+  padding: 3rem 1rem;
+  text-align: center;
+}
+
+.hero-title {
+  margin: 0 0 0.5rem 0;
+  font-size: clamp(2rem, 8vw, 4.5rem);
+  line-height: 1.1;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.6);
+  animation: floatY 2s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+.hero-subtitle {
+  margin: 0;
+  font-size: clamp(1rem, 3.5vw, 1.5rem);
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes floatY {
+  0% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(5px);
+  }
+}
+
+/* header decoration */
+nav {
+  background-color: #0d1b2a;
+  padding: 1rem;
+
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+header a {
+  text-decoration: none;
+}
+
+header #myName {
+  font-weight: 1000;
+  text-decoration: none;
+  color: #778da9;
+}
+
+header ul {
+  list-style-type: none;
+  margin: 0%;
+  padding: 0%;
+}
+
+.off-screen-menu {
+  background-color: #1b263b;
+  height: 100vh;
+  width: 100%;
+  max-width: 450px;
+  position: fixed;
+  top: 0;
+  right: -450px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 3rem;
+  transition: 0.3s ease;
+  z-index: 1000;
+}
+
+.off-screen-menu.active {
+  right: 0;
+}
+
+.ham-menu {
+  height: 50px;
+  width: 50px;
+  position: relative;
+  margin-left: auto;
+  margin-right: 10%;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 1101; /* above .off-screen-menu (1000) */
+}
+
+.ham-menu span {
+  height: 5px;
+  width: 100%;
+  background-color: white;
+  border-radius: 25px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transform-origin: center;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  display: block;
+}
+
+.ham-menu span:nth-child(1) {
+  top: 25%;
+}
+
+.ham-menu span:nth-child(3) {
+  top: 75%;
+}
+.ham-menu.active span:nth-child(1) {
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.ham-menu.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.ham-menu.active span:nth-child(3) {
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+/* Prevent background scroll when menu is open */
+body.no-scroll {
+  overflow: hidden;
+}
+
+/* Desktop layout: inline nav, hide hamburger */
+@media (min-width: 768px) {
+  /* Keep header visible on desktop */
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 1100; /* above drawer and content */
+    /* Optional subtle shadow for separation */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  }
+
+  .ham-menu {
+    display: none;
+  }
+
+  .off-screen-menu {
+    position: static;
+    height: auto;
+    max-width: none;
+    width: auto;
+    background: transparent;
+    display: block;
+    text-align: right;
+    font-size: 1rem;
+    transition: none;
+    right: auto;
+  }
+
+  nav {
+    gap: 1rem;
+  }
+
+  .off-screen-menu ul {
+    display: flex;
+    gap: 1.25rem;
+    align-items: center;
+    margin-left: auto;
+  }
+
+  .off-screen-menu li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1rem;
+  }
+
+  .off-screen-menu.active li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1rem;
+  }
+
+  /* Larger hero on desktop */
+  #hero {
+    min-height: 75vh;
+  }
+
+  .hero-inner {
+    padding: 5rem 1rem;
+  }
+}
