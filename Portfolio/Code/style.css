@@ -88,6 +88,11 @@ h6 {
   text-shadow: 0 0 12px rgba(119, 198, 255, 0.65);
   animation: shadowDance 2.6s ease-in-out infinite;
   display: inline-block;
+  background: transparent;
+  border: none;
+  font: inherit;
+  padding: 0;
+  cursor: pointer;
 }
 
 .hero-sisu-wrapper {
@@ -133,6 +138,15 @@ h6 {
   opacity: 1;
   visibility: visible;
   transform: translateX(-50%) scale(1);
+}
+
+.hero-sisu-wrapper:focus-within #hero-sisu {
+  outline: none;
+}
+
+#hero-sisu:focus-visible {
+  outline: 2px solid rgba(119, 198, 255, 0.85);
+  outline-offset: 4px;
 }
 
 @keyframes floatY {
