@@ -1,0 +1,242 @@
+/* ── Reset & Base ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --clr-bg:          #f8f9fc;
+  --clr-surface:     #ffffff;
+  --clr-navy:        #0d1b3e;
+  --clr-navy-mid:    #1a2e5a;
+  --clr-accent:      #6c9bde;        /* soft blue accent */
+  --clr-mint:        #d4f0ec;        /* pale mint highlight */
+  --clr-lavender:    #e8e4f7;        /* pale lavender highlight */
+  --clr-text:        #2c3550;
+  --clr-muted:       #6b7490;
+  --radius:          12px;
+  --shadow:          0 4px 24px rgba(13, 27, 62, 0.08);
+  --font:            'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font);
+  background: var(--clr-bg);
+  color: var(--clr-text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Hero ── */
+.hero {
+  background: linear-gradient(135deg, var(--clr-navy) 0%, var(--clr-navy-mid) 100%);
+  color: #fff;
+  padding: 96px 24px 80px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* subtle decorative circle */
+.hero::before {
+  content: '';
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: rgba(108, 155, 222, 0.12);
+  top: -160px;
+  right: -120px;
+  pointer-events: none;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: rgba(212, 240, 236, 0.07);
+  bottom: -100px;
+  left: -60px;
+  pointer-events: none;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.hero-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--clr-accent);
+  margin-bottom: 14px;
+}
+
+.hero-name {
+  font-size: clamp(2.4rem, 6vw, 3.8rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+
+.hero-tagline {
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  color: rgba(255, 255, 255, 0.72);
+  margin-bottom: 36px;
+}
+
+.cta-btn {
+  display: inline-block;
+  padding: 12px 32px;
+  background: var(--clr-accent);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 100px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.cta-btn:hover {
+  background: #5589cc;
+  transform: translateY(-2px);
+}
+
+/* ── Shared Section Styles ── */
+.section {
+  padding: 64px 24px;
+}
+
+.section:nth-child(even) {
+  background: var(--clr-surface);
+}
+
+.container {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--clr-accent);
+  margin-bottom: 20px;
+}
+
+/* ── About ── */
+.about-text {
+  font-size: 1.05rem;
+  color: var(--clr-text);
+  max-width: 600px;
+  line-height: 1.75;
+}
+
+/* ── Skills ── */
+.skills-grid {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.skill-card {
+  background: var(--clr-lavender);
+  color: var(--clr-navy-mid);
+  padding: 10px 22px;
+  border-radius: 100px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.skill-card:hover {
+  background: var(--clr-mint);
+  transform: translateY(-2px);
+}
+
+/* ── Socials / Links ── */
+.links-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.link-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 24px;
+  background: var(--clr-surface);
+  border: 1.5px solid #e2e6f0;
+  border-radius: var(--radius);
+  text-decoration: none;
+  color: var(--clr-text);
+  font-size: 0.95rem;
+  font-weight: 600;
+  box-shadow: var(--shadow);
+  transition: border-color 0.2s, transform 0.15s, box-shadow 0.2s;
+}
+
+.link-card:hover {
+  border-color: var(--clr-accent);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 28px rgba(13, 27, 62, 0.13);
+}
+
+.link-icon {
+  display: flex;
+  align-items: center;
+  color: var(--clr-navy-mid);
+}
+
+.link-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* ── Footer ── */
+.footer {
+  text-align: center;
+  padding: 28px 24px;
+  background: var(--clr-navy);
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.82rem;
+}
+
+/* ── Responsive ── */
+@media (max-width: 480px) {
+  .hero {
+    padding: 72px 20px 60px;
+  }
+
+  .section {
+    padding: 48px 20px;
+  }
+
+  .links-row {
+    flex-direction: column;
+  }
+
+  .link-card {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .skills-grid {
+    gap: 10px;
+  }
+}
